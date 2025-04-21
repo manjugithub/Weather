@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	sectionContainer: {
-		marginTop: 64,
+        marginTop: 10,
 		height: 44,
 		marginHorizontal: 5,
 		borderColor: 'black',

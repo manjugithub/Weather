@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	boldText: {
@@ -32,5 +32,5 @@ export const styles = StyleSheet.create({
     listStyle:{
         width: '100%',
         height: '100%',
-        backgroundColor: 'lightblue'}
+        backgroundColor: 'lightblue'},
 });

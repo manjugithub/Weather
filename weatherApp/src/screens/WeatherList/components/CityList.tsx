@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable semi */
 import { useContext, useEffect } from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import useCityDataFetch from '../helper/helper'
 import { CityContext } from '../../../store/contextAPI/CityContext'
 import { convertToDegree } from '../../../utils/utils'
@@ -19,21 +19,31 @@ const CityList = ({ cityName }) => {
 	const WrappedTextComponent = ({ text , value }) => {
 		return (
 			<Text style={styles.lightText}>{text + '   '}
-			<Text style={styles.boldText}>{convertToDegree(value)} </Text>
+			<Text style={styles.boldText}>{convertToDegree(value)}
+			<Text style={styles.lightText}>{' deg'} </Text>
+			</Text>
 			</Text>
 		)
 	}
 
+	const WeatherTextComponent = ({ text , value }) => {
+		return (
+			<Text style={styles.lightText}>{text + '   '}
+			<Text style={styles.boldText}>{value} </Text>
+			</Text>
+		)
+	}
+
+
 	const renderItem = ({ item }) => {
 		return (
-			<View style={styles.container}>
+			<TouchableOpacity style={styles.container}>
 				<View style={styles.innerContainer}>
 					<View>
-						<Text style={{
-								...styles.boldText,
-								textAlign: 'left',
-								fontSize: 20}}>
+						<Text style={{...styles.boldText,textAlign: 'left',fontSize: 20}}>
 							{item.name}</Text>
+							<WeatherTextComponent text={'Weather: '} value={item.weather[0]?.main} />
+
 					</View>
 					<View>
 						<WrappedTextComponent text={'Current Temp'} value={item.main.temp} />
@@ -45,7 +55,7 @@ const CityList = ({ cityName }) => {
 					<WrappedTextComponent text={'Minimum:'} value={item.main.temp_min} />
 					<WrappedTextComponent text={'Maximum:'} value={item.main.temp_max} />
 				</View>
-			</View>
+			</TouchableOpacity>
 		)
 	}
 

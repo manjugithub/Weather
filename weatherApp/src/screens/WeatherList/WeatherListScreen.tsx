@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable comma-dangle */
 import React, {useContext, useEffect, useState} from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {TextInput, View} from 'react-native';
 import CityList from './components/CityList';
 import {CityContext} from '../../store/contextAPI/CityContext';
 import { styles } from './styles'
@@ -10,16 +10,15 @@ import { styles } from './styles'
 const WeatherListScreen = () => {
 
 	const cityContextManager = useContext(CityContext);
-
 	const [searchText, setSearchText] = useState('');
 	const [cityName, setCityName] = useState < String >('');
 
 	useEffect( () => {
-		const getAllCities = async ()=>{
-			await cityContextManager.getAllCities();
+		const getLastCityName = async ()=>{
+			await cityContextManager.getLastCityName();
 			setCityName(cityContextManager.cityName);
 		};
-		getAllCities();
+		getLastCityName();
 
 	}, [cityContextManager]);
 

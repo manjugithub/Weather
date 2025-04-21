@@ -4,16 +4,16 @@ export const CityContext = createContext({
     cityList: [],
     cityName: String,
     addCity: (city) => { },
-    getAllCities: () => { },
+    getLastCityName: () => { },
 });
 
 export const CityContextProvider = ({ children }) => {
 
-   
-    const [cityList, setCityList] = useState([]);
-const [cityName, setCityName] = useState('');
 
-   
+    const [cityList, setCityList] = useState([]);
+    const [cityName, setCityName] = useState('');
+
+
     const addCity = (city) => {
         if (city !== null) {
             setCityList([city, ...cityList]);
@@ -22,7 +22,7 @@ const [cityName, setCityName] = useState('');
         }
     };
 
-    const getAllCities = async () => {
+    const getLastCityName = async () => {
         setCityName(await getCitiesFromLocal());
     };
 
@@ -30,7 +30,7 @@ const [cityName, setCityName] = useState('');
         cityList: cityList,
         cityName: cityName,
         addCity: addCity,
-        getAllCities: getAllCities,
+        getLastCityName: getLastCityName,
     };
 
     return <CityContext.Provider value={value}>{children}</CityContext.Provider>;

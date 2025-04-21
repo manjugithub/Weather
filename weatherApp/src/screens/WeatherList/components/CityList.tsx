@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import useCityDataFetch from '../helper/helper'
 import { CityContext } from '../../../store/contextAPI/CityContext'
+import { convertToDegree } from '../../../utils/utils'
 
 const CityList = ({ cityName }) => {
 
@@ -13,11 +14,6 @@ const CityList = ({ cityName }) => {
 	useEffect(() => {
 		cityContextManager.addCity(cityData)
 	}, [cityData])
-
-
-	function convertToDegree(temp) {
-		return Math.ceil((parseInt(temp)) - 273.15)
-	}
 
 
 	const WrappedTextComponent = ({ text, value }) => {

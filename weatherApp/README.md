@@ -24,13 +24,14 @@ With Metro running, open a new terminal window/pane from the root of your React 
 
 ### Android
 
-```sh
+## Not configured for android
+<!-- ```sh
 # Using npm
 npm run android
 
 # OR using Yarn
 yarn android
-```
+``` -->
 
 ### iOS
 

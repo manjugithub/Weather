@@ -1,10 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable comma-dangle */
+
+
 import React, {useContext, useEffect, useState} from 'react';
 import {TextInput, View} from 'react-native';
 import CityList from './components/CityList';
 import {CityContext} from '../../store/contextAPI/CityContext';
-import { styles } from './styles'
+import { styles } from './styles';
 
 
 const WeatherListScreen = () => {

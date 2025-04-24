@@ -10,7 +10,6 @@ export function useWeatherInfo() {
   const [error, setError] = useState<string | null>(null);
   const [lastSearched, setLastSearched] = useState<string | null>(null);
 
-
   const fetchWeather = async (city: string) => {
   
     setLoading(true);

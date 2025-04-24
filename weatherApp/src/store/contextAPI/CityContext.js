@@ -1,7 +1,4 @@
 import { createContext, useState } from 'react';
-import { saveToLocalStorage, getCitiesFromLocal } from '../../utils/utils';
-
-import { WeatherInfo } from '../../types/weatherInfo'; 
 
 export const CityContext = createContext({
     cityName: String | undefined,

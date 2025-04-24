@@ -21,9 +21,12 @@ const CustomSearchBar =  ({
 	const debouncedValue = useDebounce(searchText, 2000);
 
 	useEffect(() => {
-		onChangeText(debouncedValue);
-		if (debouncedValue.trim()) { 
-             onSubmit(debouncedValue);
+		if(debouncedValue !== undefined){
+			onChangeText(debouncedValue);
+			if (debouncedValue.trim()) { 
+				 onSubmit(debouncedValue);
+			}
+	
 		}
 	}, [debouncedValue]);
 

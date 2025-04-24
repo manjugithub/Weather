@@ -1,36 +1,25 @@
 import { createContext, useState } from 'react';
 import { saveToLocalStorage, getCitiesFromLocal } from '../../utils/utils';
+
+import { WeatherInfo } from '../../types/weatherInfo'; 
+
 export const CityContext = createContext({
-    cityList: [],
-    cityName: String,
-    addCity: (city) => { },
-    getLastCityName: () => { },
+    cityName: String | undefined,
+    updateCityName: (city) => { },
 });
 
 export const CityContextProvider = ({ children }) => {
-
-
-    const [cityList, setCityList] = useState([]);
     const [cityName, setCityName] = useState('');
 
-
-    const addCity = (city) => {
+    const updateCityName = (city) => {
         if (city !== null) {
-            setCityList([city, ...cityList]);
             setCityName(city.name);
-            saveToLocalStorage(city.name);
         }
     };
 
-    const getLastCityName = async () => {
-        setCityName(await getCitiesFromLocal());
-    };
-
     const value = {
-        cityList: cityList,
         cityName: cityName,
-        addCity: addCity,
-        getLastCityName: getLastCityName,
+        updateCityName: updateCityName,
     };
 
     return <CityContext.Provider value={value}>{children}</CityContext.Provider>;

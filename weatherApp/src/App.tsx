@@ -7,33 +7,28 @@
 
 import React from 'react';
 import {
+  SafeAreaView,
   StatusBar,
   useColorScheme,
 } from 'react-native';
 
 import WeatherListScreen from '../src/screens/WeatherList/WeatherListScreen';
 import { CityContextProvider } from './store/contextAPI/CityContext';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Stack =   createNativeStackNavigator();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <>
+    <SafeAreaView style={{flex: 1}}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
       />
-      <NavigationContainer>
+
       <CityContextProvider>
-        <Stack.Navigator>
-          <Stack.Screen name="weatherList" component={WeatherListScreen}/>
-      </Stack.Navigator>
+        <WeatherListScreen />
       </CityContextProvider>
-      </NavigationContainer>
-    </>
+
+    </SafeAreaView>
   );
 }
 export default App;

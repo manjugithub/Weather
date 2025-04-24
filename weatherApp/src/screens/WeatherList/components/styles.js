@@ -5,6 +5,11 @@ export const styles = StyleSheet.create({
 		fontWeight: '900',
 		textAlign: 'right',
 	},
+	boldTextLeftAlign: {
+		fontWeight: '900',
+		textAlign: 'left',
+		fontSize: 20,
+	},
 	container: {
 		borderRadius: 10,
 		margin: 10,
@@ -29,8 +34,9 @@ export const styles = StyleSheet.create({
 		fontWeight: '300',
 		textAlign: 'right',
 	},
-    listStyle:{
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'lightblue'},
+	listStyle: {
+		width: '100%',
+		height: '100%',
+		backgroundColor: 'lightblue',
+	},
 });

@@ -1,8 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const KalviValue = 273.15;
-export function convertToDegree(temp : any) {
-    return Math.ceil((parseInt(temp, 10)) - KalviValue);
-}
+import { Alert } from 'react-native';
 
 export const getCitiesFromLocal = async () => {
     try {
@@ -19,6 +16,6 @@ export const saveToLocalStorage = async (cityName : String) => {
         await AsyncStorage.setItem('cityKey', jsonValue);
     } catch (e) {
         // saving error
-        console.log('Saving failed');
+        Alert.alert('Couldnt save data')
     }
 };

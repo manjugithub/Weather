@@ -11,7 +11,7 @@ const WeatherListScreen = () => {
 
 	const contxtObj = useContext(CityContext);
 
-	const [searchQuery, setSearchQuery] = useState<String>(contxtObj.cityName);
+	const [searchQuery, setSearchQuery] = useState(contxtObj.cityName);
 	const {
 		weather,
 		loading,

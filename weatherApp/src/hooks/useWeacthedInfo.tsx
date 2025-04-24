@@ -10,11 +10,9 @@ export function useWeatherInfo() {
   const [error, setError] = useState<string | null>(null);
   const [lastSearched, setLastSearched] = useState<string | null>(null);
 
-  // Load last searched city on mount
 
   const fetchWeather = async (city: string) => {
   
-    // If not in cache or cache expired, make the API call
     setLoading(true);
     setError(null);
 
@@ -28,9 +26,7 @@ export function useWeatherInfo() {
       });
 
       const weatherData = response.data;
-      // Update the state with the new data
       setWeather(weatherData);    
-      // Save to recent searches
       setLastSearched(city);
 
     } catch (err) {

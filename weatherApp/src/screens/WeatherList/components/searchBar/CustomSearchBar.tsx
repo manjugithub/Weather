@@ -6,7 +6,7 @@ import {useDebounce} from "../../../../hooks/useDebaounce";
 
 interface SearchBarProps {
 	value: string;
-	onChangeText?: (text : string) => void;
+	onChangeText: (text : string) => void;
 	onSubmit: (text : string) => void;
 	placeholder?: string;
 }
@@ -53,7 +53,6 @@ const CustomSearchBar =  ({
 				onChangeText={handleChangeText}
 				onSubmitEditing={handleSubmit}
 				placeholder={placeholder}
-				placeholderTextColor="#9ca3af"
 				returnKeyType="search"
 				autoCapitalize="words"
 				autoCorrect={false}/>
